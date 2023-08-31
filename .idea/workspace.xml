@@ -9,24 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="176f868d-e6eb-413d-b99e-85773fa72d75" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/springcourse/config/MySpringMvsDispatcherServletInitializer.java" afterDir="false" />
+    <list default="true" id="176f868d-e6eb-413d-b99e-85773fa72d75" name="Changes" comment="the project is configured, the database is connected, insert script is written, base classes are created">
       <change afterPath="$PROJECT_DIR$/src/main/java/ru/springcourse/config/SpringConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/springcourse/controllers/PeopleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/springcourse/dao/BookDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/springcourse/dao/PersonDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/springcourse/models/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/springcourse/models/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/new.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/show.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sqlscripts/createDB.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/springcourse/controllers/BooksController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/springcourse/dao/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/springcourse/dao/BookDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/springcourse/models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/springcourse/models/Book.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,8 +172,16 @@
       <workItem from="1693312530998" duration="1308000" />
       <workItem from="1693340841289" duration="694000" />
       <workItem from="1693466351703" duration="2590000" />
-      <workItem from="1693470171150" duration="2297000" />
+      <workItem from="1693470171150" duration="3550000" />
     </task>
+    <task id="LOCAL-00001" summary="the project is configured, the database is connected, insert script is written, base classes are created">
+      <created>1693472878393</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1693472878393</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,5 +197,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="the project is configured, the database is connected, insert script is written, base classes are created" />
+    <option name="LAST_COMMIT_MESSAGE" value="the project is configured, the database is connected, insert script is written, base classes are created" />
   </component>
 </project>
