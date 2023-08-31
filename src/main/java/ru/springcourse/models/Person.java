@@ -5,6 +5,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.*;
+import java.time.LocalDate;
 
 public class Person {
     private int id;
@@ -18,7 +19,8 @@ public class Person {
     @Size(min = 2, max = 30, message = "Длина фамилии должна быть от 2 до 30 символов")
     private String surname;
     @NotNull(message = "Дата не должна быть пустой")
-    private int yearOfBirth;
+
+    private LocalDate birthday;
 
     @NotNull(message = "Email не должен быть пустой")
     @Email(message = "Email должен быть валидным")
@@ -27,12 +29,12 @@ public class Person {
     public Person() {
     }
 
-    public Person(int id, String name, String patronymic, String surname, int yearOfBirth, String email) {
+    public Person(int id, String name, String patronymic, String surname, LocalDate birthday, String email) {
         this.id = id;
         this.name = name;
         this.patronymic = patronymic;
         this.surname = surname;
-        this.yearOfBirth = yearOfBirth;
+        this.birthday = birthday;
         this.email = email;
     }
 
@@ -64,6 +66,17 @@ public class Person {
         return String.format("%s %s %s", getName(), getPatronymic(), getSurname());
     }
 
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public int getBirthdayYear() {
+        return birthday.getYear();
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
 
     public int getId() {
         return id;
@@ -71,14 +84,6 @@ public class Person {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getYearOfBirth() {
-        return yearOfBirth;
-    }
-
-    public void setYearOfBirth(int yearOfBirth) {
-        this.yearOfBirth = yearOfBirth;
     }
 
     public String getEmail() {
@@ -96,9 +101,8 @@ public class Person {
                 ", name='" + name + '\'' +
                 ", patronymic='" + patronymic + '\'' +
                 ", surname='" + surname + '\'' +
-                ", year of birth=" + yearOfBirth +
+                ", birthday=" + birthday +
                 ", email='" + email + '\'' +
                 '}';
     }
-
 }

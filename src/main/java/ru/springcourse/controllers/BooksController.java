@@ -37,6 +37,21 @@ public class BooksController {
     //запрос на получение страницы с определенной книгой
     @GetMapping("/{id}")
     public String bookPage(@PathVariable int id, Model model, @ModelAttribute("person") Person person) {
+        Optional<Book> book = bookDAO.getBook(id);
+        if (book.isPresent()) {
+            model.addAttribute("book", book.get());
+            Optional<Person> personOwner = bookDAO.getBookOwner(id);
+            if (personOwner.isPresent()) {
+                model.addAttribute("person_owner", personOwner.get());
+            }
+            else {
+                model.addAttribute("people", personDAO.index());
+            }
+            return "books/book";
+        }
+        else {
+            return "redirect:/books";
+        }
 
     }
     //запрос на получение страницы добавления книги
@@ -49,12 +64,21 @@ public class BooksController {
     @PostMapping()
     public String createBook(@ModelAttribute("book") @Valid Book book,
                              @NotNull BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "books/new-book";
 
+        bookDAO.save(book);
         return "redirect:/books";
     }
     //запрос на получение страницы изменения книги
     @GetMapping("/{id}/edit")
     public String editBookPage(@PathVariable int id, Model model) {
+
+        Optional<Book> selectedBook = bookDAO.getBook(id);
+        if (selectedBook.isPresent()) {
+            model.addAttribute("book", selectedBook.get());
+            return "/books/edit-book";
+        }
         return "redirect:/books";
     }
 
@@ -62,22 +86,29 @@ public class BooksController {
     @PatchMapping("/{id}")
     public String edit(@PathVariable int id, @ModelAttribute("book") @Valid Book updatedBook,
                        BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "books/edit-book";
+
+        bookDAO.update(updatedBook, id);
         return "redirect:/books/" + id;
     }
 
     //запрос на удаление книги
     @DeleteMapping("/{id}")
     public String delete(@PathVariable int id) {
+        bookDAO.deleteBook(id);
         return "redirect:/books";
     }
 
     @PatchMapping("/{id}/assign")
     public String assign(@PathVariable int id, @ModelAttribute("person") Person selectedPerson) {
+        bookDAO.assign(id, selectedPerson);
         return "redirect:/books/" + id;
     }
 
     @PatchMapping("/{id}/release")
     public String release(@PathVariable int id) {
+        bookDAO.release(id);
         return "redirect:/books/" + id;
     }
 }
